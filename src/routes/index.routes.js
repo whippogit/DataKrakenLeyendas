@@ -3,14 +3,17 @@ import {
   renderIdex,
   newsSave,
   newsDelete,
-  apiGradual,
+  allNews,
+  aNew,
 } from "../controllers/news.controllers";
 
 const router = Router();
 
-router.get("/", renderIdex);
+router.get("/api", renderIdex);
 
-router.get("/api", apiGradual);
+router.get("/api/noticias", allNews);
+
+router.get("/api/noticias/:id", aNew);
 
 router.post("/news/add", newsSave);
 

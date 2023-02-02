@@ -17,10 +17,15 @@ export const renderIdex = async (req, res) => {
   res.render("index", { news });
 };
 
-export const apiGradual = async (req, res) => {
+export const allNews = async (req, res) => {
   const news = await News.find();
+  res.send({ status: "ok", results: news });
+};
 
-  res.send({status: "ok", results: news});
+export const aNew = async (req, res) => {
+  const { id } = req.params;
+  const noticia = await News.findById(id);
+  res.send({ noticia });
 };
 
 export const newsSave = async (req, res) => {
@@ -38,7 +43,7 @@ export const newsSave = async (req, res) => {
     });
     await newNews.save();
 
-    res.redirect("/");
+    res.redirect("/api");
   } else {
     alert("El archivo excede el tamaño permitido");
   }
@@ -49,5 +54,5 @@ export const newsSave = async (req, res) => {
 export const newsDelete = async (req, res) => {
   const { id } = req.params;
   await News.findByIdAndDelete(id);
-  res.redirect("/");
+  res.redirect("/api");
 };

@@ -1,5 +1,5 @@
 {{#each news}}
-  <div class="list-group m-3">
+  <a href="api/noticias/{{_id}}" class="list-group m-3">
     <div class="list-group-item list-group-item-action">
       <div class="d-flex w-100 justify-content-between">
         <div class="card justify-content-center bg-dark" style="max-width: 50px;">
@@ -17,5 +17,5 @@
         >Eliminar</a>
       </div>
     </div>
-  </div>
+  </a>
 {{/each}}
