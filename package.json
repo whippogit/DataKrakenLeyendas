@@ -6,7 +6,7 @@
     "node": "18.x"
   },
   "scripts": {
-    "dev": "nodemon src/index.js --exec babel-node",
+    "dev": "nodemon index.js --exec babel-node",
     "build": "babel src -d dist && ncp src/views dist/views",
     "start": "node index.js"
   },
